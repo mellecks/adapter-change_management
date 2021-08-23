@@ -68,6 +68,7 @@ function get(serviceNowTable, callback) {
     baseUrl: options.url,
     uri: `/api/now/table/${serviceNowTable}?sysparm_limit=1`,
   };
+}
 
 /**
  * @function post
@@ -100,6 +101,7 @@ function post(serviceNowTable, callback) {
     baseUrl: options.url,
     uri: `/api/now/table/${serviceNowTable}`,
   };
+}
 
   // Send Request to ServiceNow.
   // We are passing variable requestOptions for the first argument.
@@ -125,7 +127,6 @@ function post(serviceNowTable, callback) {
     }
     return callback(callbackData, callbackError);
   });
-
 }
 
 /*
