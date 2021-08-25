@@ -43,15 +43,13 @@ const ServiceNowConnector = require(path.join(__dirname, './connector.js'));
  *   and tests the object's get and post methods.
  */
  
-function mainOnObject(calloptions) {
+function mainOnObject() {
   // Instantiate an object from class ServiceNowConnector.
   const connector = new ServiceNowConnector(options);
   // Test the object's get and post methods.
   // You must write the arguments for get and post.
  
-  let callBackdata;
-  let callBackerror;
-  connector.get(calloptions,(callBackdata, callBackerror));
+  connector.get(data, error);
   console.log(`Callbackdata ${callBackerror}`);
   connector.post(calloptions,(callBackdata, callBackerror));
 }
