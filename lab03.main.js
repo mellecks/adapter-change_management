@@ -121,24 +121,22 @@ function processRequestResults(error, response, body, callback) {
    * This function must not check for a hibernating instance;
    * it must call function isHibernating.
    */
-   const hibernatingTest ={statusCode: response, body: body,};
-   if (isHibernating(hibernatingTest)){
+   const hibernatingTest ={statusCode: response.statusCode, body: body,};
+      if (isHibernating(hibernatingTest)){
      callback.error = 'Service Now instance is hibernating';
-     console.error(callback.error);    
+     //console.error(callback.error);    
    }  else if (error) {
-     console.error('Error present.');
+     //console.error('Error present.');
      callback.error = error;
    } else if (!validResponseRegex.test(response.statusCode)) {
-     console.error('Bad response code.');
+     //console.error('Bad response code.');
      callback.error = response;
    } else { 
-     code=response.statusCode;    
-     const goodData = {"StatusCode":code, "body": body,};
+     const goodData = {"StatusCode": response.statusCode, "body": body,};
      callback.data = goodData;
    }
    return callback(callback.data, callback.error);
 }
-
 
 /**
  * @function sendRequest
@@ -168,6 +166,7 @@ function sendRequest(callOptions, callback) {
    * from the previous lab. There should be no
    * hardcoded values.
    */
+
   const requestOptions = {
     method: callOptions.method,
     auth: {
@@ -229,13 +228,13 @@ function main() {
     if (error) {
       console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
     }
-    console.log(`\nResponse returned from GET request:\n${JSON.stringify(data)}`)
+    //console.log(`\nResponse returned from GET request:\n${JSON.stringify(data)}`)  
   });
   post({ serviceNowTable: 'change_request' }, (data, error) => {
     if (error) {
       console.error(`\nError returned from POST request:\n${JSON.stringify(error)}`);
-    }
-    console.log(`\nResponse returned from POST request:\n${JSON.stringify(data)}`)
+    } 
+    //console.log(`\nResponse returned from POST request:\n${JSON.stringify(data)}`)  
   });
 }
 
