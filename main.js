@@ -145,7 +145,12 @@ class ServiceNowAdapter extends EventEmitter {
    * @param {ServiceNowAdapter~requestCallback} callback - The callback that
    *   handles the response.
    */
-  getRecord (data, error) ;
+  getRecord (data, error) => {
+    if (error) {
+      console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
+    }
+    console.log(`\nResponse returned from GET request:\n${JSON.stringify(data)}`)
+  });
 
 
   /**
@@ -157,7 +162,11 @@ class ServiceNowAdapter extends EventEmitter {
    * @param {ServiceNowAdapter~requestCallback} callback - The callback that
    *   handles the response.
    */
-  postRecord (data, error) ;
-}
+  postRecord (data, error) => {
+    if (error) {
+      console.error(`\nError returned from POST request:\n${JSON.stringify(error)}`);
+    }
+    console.log(`\nResponse returned from POST request:\n${JSON.stringify(data)}`)
+  });
 
 module.exports = ServiceNowAdapter;
