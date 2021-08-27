@@ -155,7 +155,7 @@ class ServiceNowAdapter extends EventEmitter {
    * @param {ServiceNowAdapter~requestCallback} callback - The callback that
    *   handles the response.
    */
-     ServiceNowConnector.get(callback);
+    ServiceNowConnector.get(callback);
   }
 
   postRecord (callback){
