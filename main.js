@@ -114,7 +114,7 @@ class ServiceNowAdapter extends EventEmitter {
          * healthcheck(), execute it passing the error seen as an argument
          * for the callback's errorMessage parameter.
          */
-         console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
+         //console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
          //this.emitOffline(this.id, error);
        } else {
         /**
