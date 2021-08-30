@@ -94,14 +94,14 @@ class ServiceNowAdapter extends EventEmitter {
    *   that handles the response.
    */
   healthcheck(callback) {
-    this.getRecord((result, error) => {
+    //this.getRecord((callback) => {
       /**
        * For this lab, complete the if else conditional
        * statements that check if an error exists
        * or the instance was hibernating. You must write
        * the blocks for each branch.
        */
-      if (error) {
+      //if (error) {
         /**
          * Write this block.
          * If an error was returned, we need to emit OFFLINE.
@@ -116,7 +116,7 @@ class ServiceNowAdapter extends EventEmitter {
          */
          //console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
          //this.emitOffline(this.id, error);
-       } else {
+       //} else {
         /**
          * Write this block.
          * If no runtime problems were detected, emit ONLINE.
@@ -127,7 +127,7 @@ class ServiceNowAdapter extends EventEmitter {
          * parameter as an argument for the callback function's
          * responseData parameter.
          */
-      }
+      //}
     });
   }
 
