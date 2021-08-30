@@ -22,9 +22,9 @@
         },
         "password": {
           "type": "string",
-          "default": "$ENCabef95295179a20196db49409ed1271e83852084a7d64093",
+          "default": "Hercul3$",
           "examples": [
-            "$ENCabef95295179a20196db49409ed1271e83852084a7d64093"
+            "Hercul3$"
           ]
         }
       },
