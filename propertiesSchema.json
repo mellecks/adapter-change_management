@@ -22,9 +22,9 @@
         },
         "password": {
           "type": "string",
-          "default": "Hercul3$",
+          "default": "devUserPassword",
           "examples": [
-            "Hercul3$"
+            "devUserPassword"
           ]
         }
       },
