@@ -103,7 +103,7 @@ healthcheck(callback) {
      * the blocks for each branch.
      */
     if (error) {
-      emitOnline();
+      emitOffline();
       /**
        * Write this block.
        * If an error was returned, we need to emit OFFLINE.
