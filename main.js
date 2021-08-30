@@ -95,7 +95,7 @@ class ServiceNowAdapter extends EventEmitter {
  */
 healthcheck(callback) {
   
-  this.getRecord((callback) => {
+  this.getRecord(() => {
     /**
      * For this lab, complete the if else conditional
      * statements that check if an error exists
@@ -185,7 +185,7 @@ healthcheck(callback) {
      * Note how the object was instantiated in the constructor().
      * get() takes a callback function.
      */
-     connector.get(callback);
+     this.connector.get(callback);
   }
 
   /**
@@ -204,7 +204,7 @@ healthcheck(callback) {
      * Note how the object was instantiated in the constructor().
      * post() takes a callback function.
      */
-    connector.post(callback);
+    this.connector.post(callback);
   }
 }
 
