@@ -104,8 +104,8 @@ healthcheck(callback) {
      * the blocks for each branch.
      */
     if (error) {
-      this.emitOffline();
-      log.error(`Service now adapter is offline ${this.id}`);
+      this.emitOffline(callbackError);
+    
       
       /**
        * Write this block.
@@ -119,10 +119,13 @@ healthcheck(callback) {
        * healthcheck(), execute it passing the error seen as an argument
        * for the callback's errorMessage parameter.
        */
+    } else if (response.body.includes('Instance Hibernating page')) {
+      callbackError = 'Service Now instance is hibernating';
     } else {
+      
     
-      this.emitOnline(); 
-      log.info('Service now adapter is online');
+      this.emitOnline(response); 
+      
       
       /**
        * Write this block.
@@ -145,9 +148,10 @@ healthcheck(callback) {
    * @description Emits an OFFLINE event to IAP indicating the external
    *   system is not available.
    */
-  emitOffline() {
+  emitOffline(callbackError) {
     this.emitStatus('OFFLINE');
-    log.error('ServiceNow: Instance is unavailable.');
+    log.error(`ServiceNow: Instance is unavailable.`);
+    log.error(`${callbackError} ${this.id}`);
   }
 
   /**
@@ -157,9 +161,9 @@ healthcheck(callback) {
    * @description Emits an ONLINE event to IAP indicating external
    *   system is available.
    */
-  emitOnline() {
+  emitOnline(response) {
     this.emitStatus('ONLINE');
-    log.info('ServiceNow: Instance is available.');
+    log.info(`ServiceNow: Instance is available. statusCode: ${response.statusCode}`);
   }
 
   /**
