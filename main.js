@@ -96,7 +96,8 @@ class ServiceNowAdapter extends EventEmitter {
 healthcheck(callback) { 
 
   this.getRecord((result,error) => {
-
+      console.log(`response ${response}`);
+      console.log(`error ${error}`)
     /**
      * For this lab, complete the if else conditional
      * statements that check if an error exists
@@ -119,7 +120,7 @@ healthcheck(callback) {
        */
     //} else {
     
-      this.emitOnline(); 
+      //this.emitOnline(); 
       /**
        * Write this block.
        * If no runtime problems were detected, emit ONLINE.
