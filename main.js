@@ -93,17 +93,17 @@ class ServiceNowAdapter extends EventEmitter {
  * @param {ServiceNowAdapter~requestCallback} [callback] - The optional callback
  *   that handles the response.
  */
-healthcheck(callback) {
-  this.emitOnline();
-  //this.getRecord((result,error) => {
+healthcheck(callback) { 
+
+  this.getRecord((result,error) => {
     /**
      * For this lab, complete the if else conditional
      * statements that check if an error exists
      * or the instance was hibernating. You must write
      * the blocks for each branch.
      */
-    //if (error) {
-      //emitOffline();
+    if (error) {
+      this.emitOffline();
       /**
        * Write this block.
        * If an error was returned, we need to emit OFFLINE.
@@ -116,8 +116,8 @@ healthcheck(callback) {
        * healthcheck(), execute it passing the error seen as an argument
        * for the callback's errorMessage parameter.
        */
-    //} else {
-      //this.emitOnline(); 
+    } else {
+      this.emitOnline(); 
       /**
        * Write this block.
        * If no runtime problems were detected, emit ONLINE.
@@ -128,9 +128,9 @@ healthcheck(callback) {
        * parameter as an argument for the callback function's
        * responseData parameter.
        */
-    //}
+    }
   
-  //});
+  });
 }
 
   /**
@@ -186,7 +186,7 @@ healthcheck(callback) {
      * Note how the object was instantiated in the constructor().
      * get() takes a callback function.
      */
-     ServiceNowConnector.get(callback);
+     ServiceNowConnector.get(callback) => callback(processedResults, processedError);
   }
 
   /**
