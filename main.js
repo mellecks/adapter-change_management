@@ -106,7 +106,7 @@ healthcheck(callback) {
       //this.emitOffline();
       /**
        * Write this block.
-       * If an error was returned, we need to emit OFFLINE.
+       * If an error was returned, we need to emit OFFLINE.node
        * Log the returned error using IAP's global log object
        * at an error severity. In the log message, record
        * this.id so an administrator will know which ServiceNow
@@ -180,7 +180,7 @@ healthcheck(callback) {
    * @param {ServiceNowAdapter~requestCallback} callback - The callback that
    *   handles the response.
    */
-  getRecord(callback) {
+  getRecord() {
     /**
      * Write the body for this function.
      * The function is a wrapper for this.connector's get() method.
