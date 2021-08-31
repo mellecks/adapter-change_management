@@ -189,8 +189,10 @@ healthcheck(callback) {
    * get() takes a callback function.
    */
     this.connector.get((data,error) => {
-        if (data.body){ 
-          //log.info(`\nResponse returned from GET request:\n${JSON.stringify(data.body.type)}`);
+        let responseStatus=data.statusCode;
+        let responseBody=data.body;
+        if (responseBody){ 
+          log.info(`Response returned from GET request: ${JSON.stringify(responseBody.sys_updated_on)}`);
         }  
      });
   }  
