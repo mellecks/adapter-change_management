@@ -115,7 +115,7 @@ healthcheck(callback) {
        * for the callback's errorMessage parameter.
        */
       this.emitOffline(error); 
-    } else if (this.connector.isHibernating(response)) {
+    } else if (this.connector.isHibernating(result)) {
       //error = 'Service Now instance is hibernating';
       //this.emitOffline(error); 
     } else { 
