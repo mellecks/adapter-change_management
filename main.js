@@ -119,7 +119,7 @@ healthcheck(callback) {
        */
     //} else {
     
-      //this.emitOnline(); 
+      this.emitOnline(); 
       /**
        * Write this block.
        * If no runtime problems were detected, emit ONLINE.
