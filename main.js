@@ -95,8 +95,6 @@ class ServiceNowAdapter extends EventEmitter {
  */
 healthcheck(callback) { 
   this.getRecord((result,error) => {
-   
-  
     /**
      * For this lab, complete the if else conditional
      * statements that check if an error exists
@@ -104,9 +102,6 @@ healthcheck(callback) {
      * the blocks for each branch.
      */
     if (error) {
-      this.emitOffline(callbackError);
-    
-      
       /**
        * Write this block.
        * If an error was returned, we need to emit OFFLINE.node
@@ -119,14 +114,10 @@ healthcheck(callback) {
        * healthcheck(), execute it passing the error seen as an argument
        * for the callback's errorMessage parameter.
        */
-    } else if (response.body.includes('Instance Hibernating page')) {
+      this.emitOffline(callbackError); 
+    } else if (result.body.includes('Instance Hibernating page')) {
       callbackError = 'Service Now instance is hibernating';
-    } else {
-      
-    
-      this.emitOnline(response); 
-      
-      
+    } else { 
       /**
        * Write this block.
        * If no runtime problems were detected, emit ONLINE.
@@ -136,7 +127,8 @@ healthcheck(callback) {
        * healthcheck(), execute it passing this function's result
        * parameter as an argument for the callback function's
        * responseData parameter.
-       */
+       */ 
+      this.emitOnline(result); 
     }
   });
 }
@@ -161,9 +153,9 @@ healthcheck(callback) {
    * @description Emits an ONLINE event to IAP indicating external
    *   system is available.
    */
-  emitOnline(response) {
+  emitOnline(result) {
     this.emitStatus('ONLINE');
-    log.info(`ServiceNow: Instance is available. statusCode: ${response.statusCode}`);
+    log.info(`ServiceNow: Instance is available. statusCode: ${result.statusCode}`);
   }
 
   /**
