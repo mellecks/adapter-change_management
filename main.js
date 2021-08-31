@@ -99,15 +99,15 @@ healthcheck(callback) {
     let callbackResponseData = null;
     let callbackErrorData = null;
 
-      console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
+      
     /**
      * For this lab, complete the if else conditional
      * statements that check if an error exists
      * or the instance was hibernating. You must write
      * the blocks for each branch.
      */
-    //if (error) {
-      //this.emitOffline();
+    if (error) {
+      this.emitOffline();
       /**
        * Write this block.
        * If an error was returned, we need to emit OFFLINE.node
@@ -120,9 +120,9 @@ healthcheck(callback) {
        * healthcheck(), execute it passing the error seen as an argument
        * for the callback's errorMessage parameter.
        */
-    //} else {
+    } else {
     
-      //this.emitOnline(); 
+      this.emitOnline(); 
       /**
        * Write this block.
        * If no runtime problems were detected, emit ONLINE.
@@ -133,7 +133,7 @@ healthcheck(callback) {
        * parameter as an argument for the callback function's
        * responseData parameter.
        */
-    //}
+    }
   
   });
 }
