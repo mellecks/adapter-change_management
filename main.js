@@ -95,7 +95,8 @@ class ServiceNowAdapter extends EventEmitter {
  */
 healthcheck(callback) { 
 
-  this.getRecord((result,error) => {
+  this.getRecord((result,error) => {callback(responseData,errorData) 
+  
       console.log(`response ${response}`);
       console.log(`error ${error}`)
     /**
