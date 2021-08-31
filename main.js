@@ -95,7 +95,7 @@ class ServiceNowAdapter extends EventEmitter {
  */
 healthcheck(callback) { 
 
-  this.getRecord(result,error) => { callback(responseData,errorData)
+  this.getRecord(result,error) {
 
     /**
      * For this lab, complete the if else conditional
@@ -104,7 +104,7 @@ healthcheck(callback) {
      * the blocks for each branch.
      */
     if (error) {
-      this.emitOffline();
+      //this.emitOffline();
       /**
        * Write this block.
        * If an error was returned, we need to emit OFFLINE.
