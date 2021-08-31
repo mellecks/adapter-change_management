@@ -104,7 +104,7 @@ healthcheck(callback) {
      * the blocks for each branch.
      */
     if (error) {
-      this.emitOffline();
+      //this.emitOffline();
       /**
        * Write this block.
        * If an error was returned, we need to emit OFFLINE.
