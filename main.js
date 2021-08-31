@@ -188,8 +188,8 @@ healthcheck(callback) {
    * Note how the object was instantiated in the constructor().
    * get() takes a callback function.
    */
-    this.connector.get((data,error) => { callback(data,error); 
-        console.log(`\nResponse returned from GET request:\n${JSON.stringify(data)}`);
+    this.connector.get((data,error) => { 
+        log.info(`\nResponse returned from GET request:\n${JSON.stringify(data)}`);
      });
   }  
 
