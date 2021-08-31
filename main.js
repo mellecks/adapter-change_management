@@ -95,7 +95,7 @@ class ServiceNowAdapter extends EventEmitter {
  */
 healthcheck(callback) { 
 
-  //this.getRecord(result,error) {
+  this.getRecord((result,error) => {
 
     /**
      * For this lab, complete the if else conditional
@@ -103,8 +103,8 @@ healthcheck(callback) {
      * or the instance was hibernating. You must write
      * the blocks for each branch.
      */
-    //if (error) {
-      //this.emitOffline();
+    if (error) {
+      this.emitOffline();
       /**
        * Write this block.
        * If an error was returned, we need to emit OFFLINE.
@@ -117,7 +117,7 @@ healthcheck(callback) {
        * healthcheck(), execute it passing the error seen as an argument
        * for the callback's errorMessage parameter.
        */
-    //} else {
+    } else {
     
       this.emitOnline(); 
       /**
@@ -130,9 +130,9 @@ healthcheck(callback) {
        * parameter as an argument for the callback function's
        * responseData parameter.
        */
-    //}
+    }
   
-  //});
+  });
 }
 
   /**
@@ -144,7 +144,7 @@ healthcheck(callback) {
    */
   emitOffline() {
     this.emitStatus('OFFLINE');
-    log.warn('ServiceNow: Instance is unavailable.');
+    log.error('ServiceNow: Instance is unavailable.');
   }
 
   /**
