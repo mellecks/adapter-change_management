@@ -114,9 +114,9 @@ healthcheck(callback) {
        * healthcheck(), execute it passing the error seen as an argument
        * for the callback's errorMessage parameter.
        */
-      this.emitOffline(callbackError); 
+      this.emitOffline(error); 
     } else if (result.body.includes('Instance Hibernating page')) {
-      callbackError = 'Service Now instance is hibernating';
+      error = 'Service Now instance is hibernating';
     } else { 
       /**
        * Write this block.
