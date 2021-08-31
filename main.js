@@ -96,8 +96,8 @@ class ServiceNowAdapter extends EventEmitter {
 healthcheck(callback) { 
 
   this.getRecord((result,error) => {
-    let callbackResponseData = null;
-    let callbackErrorData = null;
+    let result = null;
+    let error = null;
 
       
     /**
