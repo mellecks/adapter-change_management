@@ -94,8 +94,11 @@ class ServiceNowAdapter extends EventEmitter {
  *   that handles the response.
  */
 healthcheck(callback) { 
+    let callback.response = null;
+    let callback.error =null;
+
   this.getRecord((result,error) => {
-    console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
+      console.error(`\nError returned from GET request:\n${JSON.stringify(error)}`);
     /**
      * For this lab, complete the if else conditional
      * statements that check if an error exists
@@ -180,7 +183,7 @@ healthcheck(callback) {
    * @param {ServiceNowAdapter~requestCallback} callback - The callback that
    *   handles the response.
    */
-  getRecord() {
+  getRecord(callback) {
     /**
      * Write the body for this function.
      * The function is a wrapper for this.connector's get() method.
