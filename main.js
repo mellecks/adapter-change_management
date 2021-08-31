@@ -144,7 +144,7 @@ healthcheck(callback) {
   emitOffline(callbackError) {
     this.emitStatus('OFFLINE');
     log.error(`ServiceNow: Instance is unavailable.`);
-    log.error(`${callbackError} ${id}`);
+    log.error(`${callbackError} ${this.id}`);
   }
 
   /**
