@@ -107,7 +107,8 @@ healthcheck(callback) {
      */
     if (error) {
       this.emitOffline();
-      callbackError=error;
+      log.error('Service now adapter is offline {this.id}');
+      callbackError = error;
       /**
        * Write this block.
        * If an error was returned, we need to emit OFFLINE.node
@@ -123,6 +124,7 @@ healthcheck(callback) {
     } else {
     
       this.emitOnline(); 
+      log.info('Service now adapter is online');
       callbackResult=result;
       /**
        * Write this block.
@@ -135,7 +137,6 @@ healthcheck(callback) {
        * responseData parameter.
        */
     }
-  
   });
 }
 
@@ -192,7 +193,7 @@ healthcheck(callback) {
      * Note how the object was instantiated in the constructor().
      * get() takes a callback function.
      */
-     ServiceNowConnector.get(callback);
+     this.connector.get(callback);
   }
 
   /**
@@ -211,7 +212,7 @@ healthcheck(callback) {
      * Note how the object was instantiated in the constructor().
      * post() takes a callback function.
      */
-    ServiceNowConnector.post(callback);
+    this.connector.post(callback);
   }
 }
 
