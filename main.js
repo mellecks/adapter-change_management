@@ -190,7 +190,7 @@ healthcheck(callback) {
    */
     this.connector.get((data,error) => {
         if (data.body){ 
-          log.info(`\nResponse returned from GET request:\n${JSON.stringify(data)}`);
+          //log.info(`\nResponse returned from GET request:\n${JSON.stringify(data.body.type)}`);
         }  
      });
   }  
