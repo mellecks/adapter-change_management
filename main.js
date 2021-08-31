@@ -182,13 +182,15 @@ healthcheck(callback) {
    *   handles the response.
    */
   getRecord(callback) {
-    /**
-     * Write the body for this function.
-     * The function is a wrapper for this.connector's get() method.
-     * Note how the object was instantiated in the constructor().
-     * get() takes a callback function.
-     */
-     this.connector.get(callback);
+  /**
+   * Write the body for this function.
+   * The function is a wrapper for this.connector's get() method.
+   * Note how the object was instantiated in the constructor().
+   * get() takes a callback function.
+   */
+    this.connector.get((data,error) => { callback(data,error) 
+      console.log(`\nResponse returned from GET request:\n${JSON.stringify(data)}`);
+    });
   }
 
   /**

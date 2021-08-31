@@ -1,29 +1,27 @@
-{
   "$id": "changeRequest",
   "definitions": {
-    "changeRequest": {
+    "changeTicket": {
       "title": "changeTicket",
       "type": "object",
       "properties": {
-        "statusCode": {
-          "type": "integer",
-          "default": 200,
-          "examples": [
-            200
-          ]
-        },
-        "body": {
-          "type": "string",
-          "default": "",
-          "examples": [
-            ""
-          ]
-        }
-      }
+         "change_ticket_number": "CHG0000024",
+          "active": "True",
+          "type": "4",
+          "description": "Making a change to an existing ticket.",
+          "work_start": "2015-07-06 18:56:04",
+          "work_end": "2015-07-06 23:56:44",
+          "change_ticket_key": "1766f1de47410200e90d87e8dee490f6"
+      },
+      "required": [
+        "change_ticket_number",
+        "active",
+        "priority",
+        "description",
+        "work_start",
+        "work_end",
+        "change_ticket_key"
+      ],
+      "additionalProperties": false
     }
-  },
-  "required": [
-    "statusCode",
-    "body"
-  ]
-}
+  }
+}      
