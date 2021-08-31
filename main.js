@@ -95,8 +95,8 @@ class ServiceNowAdapter extends EventEmitter {
  */
 healthcheck(callback) { 
   this.getRecord((result,error) => {
-    let callbackResult = null;
-    let callbackError = null;
+    let result = null;
+    let error = null;
 
       
     /**
@@ -107,8 +107,8 @@ healthcheck(callback) {
      */
     if (error) {
       this.emitOffline();
-      log.error('Service now adapter is offline {this.id}');
-      callbackError = error;
+      log.error(`Service now adapter is offline ${this.id}`);
+      
       /**
        * Write this block.
        * If an error was returned, we need to emit OFFLINE.node
@@ -125,7 +125,7 @@ healthcheck(callback) {
     
       this.emitOnline(); 
       log.info('Service now adapter is online');
-      callbackResult=result;
+      
       /**
        * Write this block.
        * If no runtime problems were detected, emit ONLINE.
